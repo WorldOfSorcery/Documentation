@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
-import { ProtectedRoute, ProtectedRouteNoPerm } from './components/ProtectedRoute';
+// import { ProtectedRoute, ProtectedRouteNoPerm } from './components/ProtectedRoute';
 import './styles/App.css';
 import AuthLayout from './components/AuthLayout';
 import MainLayout from './components/MainLayout';
@@ -17,7 +17,6 @@ const App = () => {
         <AuthProvider>
           <Routes>
             {/* Auth Layout */}
-            <Route path="/home" element={<Dashboard />} />
             <Route element={<AuthLayout />}>
               <Route path="/login" element={<Login />} />
             </Route>
@@ -25,6 +24,7 @@ const App = () => {
             {/* Main Layout */}
             <Route element={<MainLayout />}>
               <Route path="/" element={<Navigate to="/home" />} />
+              <Route path="/home" element={<Dashboard />} />
               
               {/*<Route path="/citems" element={<ProtectedRoute requiredPermission='CITEM_VIEW'><CitemTab /></ProtectedRoute>} />
               <Route path="/users" element={<ProtectedRoute requiredPermission='ADMIN'><UserList /></ProtectedRoute>} />
