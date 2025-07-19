@@ -62,7 +62,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           method: 'GET',
           credentials: 'include',
         });
-    
+
         if (response.ok) {
           const data = await response.json();
           setAuthUser(data.user);
@@ -73,14 +73,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setLoading(false);
       }
     };
-  
+
     fetchUser();
   }, [navigate]);
 
   return (
-    <AuthContext.Provider value={{ authUser, setAuthUser, authLoading, logout }}>
-      {children}
-    </AuthContext.Provider>
+      <AuthContext.Provider value={{ authUser, setAuthUser, authLoading, logout }}>
+        {children}
+      </AuthContext.Provider>
   );
 };
 
