@@ -1,0 +1,10 @@
+Step 1:
+write the Documentation Site
+
+Step 2:
+Add it to the sidebar in the `src/components/sidebar.tsx` file.
+-> You only need to add it in the Category Subitems, you can also make up new categories if you want.
+
+Step 3:
+Add the page in 'src/App.tsx'
+-> Here you need to import the page first and then add it to the Routes. You can just copy it from the example

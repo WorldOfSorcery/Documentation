@@ -1,23 +1,23 @@
-import type { ReactNode } from 'react';
-import Title from './TitleComponent';
+import React, {type ReactNode } from "react";
 
-interface PageProps {
+type DocComponentProps = {
     title: string;
+    description?: string;
     children: ReactNode;
-}
+};
 
-const Page = ({title, children}: PageProps) => {
+const DocComponent: React.FC<DocComponentProps> = ({ title, description, children }) => {
     return (
-        <div className='docpage-container'>
-            <Title title={title}></Title>
-            <div className='docpage-header'>
-                <h3>{title}</h3>
-            </div>
-            <div className='docpage-content'>
-                {children}
+        <div className="doc-container">
+            <h1>{title}</h1>
+            {description && <p className="text-lg text-gray-600 mb-6">{description}</p>}
+            <div className="doc-content">
+                <article className="prose prose-lg max-w-none">
+                    {children}
+                </article>
             </div>
         </div>
     );
 };
 
-export default Page;
+export default DocComponent;
